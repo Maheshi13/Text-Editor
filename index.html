@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text Editor</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      padding: 80px;
+      background-color: #eaedf1;
+    }
+
+    .toolbar {
+      background-color: #a4a9bd;
+      padding: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .toolbar button, .toolbar label {
+      background-color: #aab0c7;
+      border: none;
+      padding: 6px 8px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .toolbar button:hover, .toolbar label:hover {
+      background-color: #ddd;  
+    }
+
+    .toolbar input[type="color"] {
+      width: 20px;
+      height: 20px;
+      padding : 0;
+      cursor: pointer;
+     
+    }
+
+    #editor {
+      border: 1px solid #ccc;
+      background-color: #ffffff;
+      min-height: 300px;
+      padding: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15); 
+    }
+  </style>
+</head>
+<body>
+
+  <h2 style="text-align: center;">Text Editor</h2>
+
+  <div class="toolbar">
+    <button title="Bold" onclick="document.execCommand('bold')"><img src="D:\2023t01893-Web\Resource\bold-solid.svg" alt="Bold" width="15" height="15"></button>
+    <button title="Italic" onclick="document.execCommand('italic')"><img src="D:\2023t01893-Web\Resource\italic-solid.svg" alt= "italic" width="15" height="15"></button>
+    <button title="Underline" onclick="document.execCommand('underline')"><img src="D:\2023t01893-Web\Resource\underline-solid.svg" alt="underline"width="15" height="15"></button>
+
+    <label title="Font Color">
+      <img src="D:\2023t01893-Web\Resource\font-solid.svg" alt="Font Color" width="15" height="15">
+      <input type="color" onchange="document.execCommand('foreColor', false, this.value)">
+    </label>
+
+    <button title="Align Left" onclick="document.execCommand('justifyLeft')"><img src="D:\2023t01893-Web\Resource\align-left-solid.svg" alt="Align Left" width="15" height="15"></button>
+    <button title="Align Center" onclick="document.execCommand('justifyCenter')"><img src="D:\2023t01893-Web\Resource\align-center-solid.svg" alt="Align Center" width="15" height="15"></button>
+    <button title="Align Right" onclick="document.execCommand('justifyRight')"><img src="D:\2023t01893-Web\Resource\align-right-solid.svg" alt="Align Right" width="15" height="15"></button>
+    <button title="Justify" onclick="document.execCommand('justifyFull')"><img src="D:\2023t01893-Web\Resource\align-justify-solid.svg" alt="Justify" width="15" height="15"></i></button>
+    <button title="Undo" onclick="document.execCommand('undo')"><img src="D:\2023t01893-Web\Resource\rotate-left-solid.svg" alt="Undo" width="15" height="15"></button>
+    <button title="Redo" onclick="document.execCommand('redo')"><img src="D:\2023t01893-Web\Resource\rotate-right-solid.svg" alt="Redo" width="15" height="15"></button>
+  </div>
+
+  <div id="editor" contenteditable="true">
+    Type your text here...
+  </div>
+
+</body>
+</html>
