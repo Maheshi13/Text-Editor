@@ -67,17 +67,32 @@
       <input type="color" onchange="document.execCommand('foreColor', false, this.value)">
     </label>
 
-    <button title="Align Left" onclick="document.execCommand('justifyLeft')"><img src="Resource/align-left-solid.svg" alt="Align Left" width="15" height="15"></button>
-    <button title="Align Center" onclick="document.execCommand('justifyCenter')"><img src="Resource/align-center-solid.svg" alt="Align Center" width="15" height="15"></button>
-    <button title="Align Right" onclick="document.execCommand('justifyRight')"><img src="Resource/align-right-solid.svg" alt="Align Right" width="15" height="15"></button>
-    <button title="Justify" onclick="document.execCommand('justifyFull')"><img src="Resource/align-justify-solid.svg" alt="Justify" width="15" height="15"></i></button>
+    <button title="Align Left" onclick="alignEditor('left')"><img src="Resource/align-left-solid.svg" alt="Align Left" width="15" height="15"></button>
+    <button title="Align Center" onclick="alignEditor('center')"><img src="Resource/align-center-solid.svg" alt="Align Center" width="15" height="15"></button>
+    <button title="Align Right" onclick="alignEditor('right')"><img src="Resource/align-right-solid.svg" alt="Align Right" width="15" height="15"></button>
+    <button title="Justify" onclick="alignEditor('justify')"><img src="Resource/align-justify-solid.svg" alt="Justify" width="15" height="15"></button>
+
     <button title="Undo" onclick="document.execCommand('undo')"><img src="Resource/rotate-left-solid.svg" alt="Undo" width="15" height="15"></button>
     <button title="Redo" onclick="document.execCommand('redo')"><img src="Resource/rotate-right-solid.svg" alt="Redo" width="15" height="15"></button>
   </div>
 
-  <div id="editor" contenteditable="true">
-    Type your text here...
-  </div>
+  <div id="editor" contenteditable="true"></div>
+
+<script>
+function alignEditor(alignment) {
+  const editor = document.getElementById('editor');
+  if (alignment === 'left') {
+    editor.style.textAlign = 'left';
+  } else if (alignment === 'center') {
+    editor.style.textAlign = 'center';
+  } else if (alignment === 'right') {
+    editor.style.textAlign = 'right';
+  } else if (alignment === 'justify') {
+    editor.style.textAlign = 'justify';
+  }
+}
+</script>
+
 
 </body>
 </html>
